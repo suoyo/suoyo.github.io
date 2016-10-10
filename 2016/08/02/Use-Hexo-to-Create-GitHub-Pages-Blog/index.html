@@ -106,7 +106,8 @@ M">
 <meta property="og:image" content="http://ob9p5reln.bkt.clouddn.com/ef831b7ec0caa5799ad68fd77790fffc.png">
 <meta property="og:image" content="http://ob9p5reln.bkt.clouddn.com/032f11189558797015535aa54268dafa.png">
 <meta property="og:image" content="http://ob9p5reln.bkt.clouddn.com/295de3097e1f1c836c3637fccde048e5.png">
-<meta property="og:updated_time" content="2016-08-29T15:09:03.083Z">
+<meta property="og:image" content="http://ob9p5reln.bkt.clouddn.com/62a278c98e5b4c2325749181846205ee.png">
+<meta property="og:updated_time" content="2016-10-10T06:07:08.130Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Hexo搭建GitHub Pages博客">
 <meta name="twitter:description" content="前言  之前一直想有一个自己的博客，在惠普培训的时候响应老师的号召在CSDN转载了几篇文章算是自己的博客，后来忙着找工作就那样放在那里再也没有看过= =。后来在孔征的”诱惑”下终于决定用GitHub Pages搭建一个自己的博客。
@@ -297,14 +298,14 @@ M">
           </span>
 
 
-	
-	  <span class="post-updated">
-		&nbsp; | &nbsp; 更新于
-		<time itemprop="dateUpdated" datetime="2016-08-29T23:09:03+08:00" content="2016-08-29">
-		  2016-08-29
-		</time>
-	  </span>
-	
+			
+			  <span class="post-updated">
+				&nbsp; | &nbsp; 更新于
+				<time itemprop="dateUpdated" datetime="2016-10-10T14:07:08+08:00" content="2016-10-10">
+				  2016-10-10
+				</time>
+			  </span>
+			
 
           
 
@@ -445,6 +446,13 @@ $ npm install
 <p><img src="http://ob9p5reln.bkt.clouddn.com/295de3097e1f1c836c3637fccde048e5.png" alt="repository url"></p>
 <p>配置过程中可使用<a href="http://www.yamllint.com/" target="_blank" rel="external">yamllint</a>检查语法是否正确。</p>
 <p>更多Hexo配置查看<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">Hexo官方文档</a>。</p>
+<h2 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h2><pre><code>$ hexo new [layout] &lt;title&gt;
+</code></pre><p>可以在命令中指定文章的布局（layout），默认为 <code>post</code>，可以通过修改<code>_config.yml</code>中的<code>default_layout</code>参数来指定默认布局，修改<code>new_post_name</code>参数来改变默认的文件名称，如：</p>
+<pre><code>new_post_name: :year-:month-:day-:title.md
+</code></pre><p>创建一篇新文章：</p>
+<pre><code>$ hexo new &quot;android studio tips&quot;
+</code></pre><p>文件名如下：</p>
+<p><img src="http://ob9p5reln.bkt.clouddn.com/62a278c98e5b4c2325749181846205ee.png" alt="hexo_file_name"></p>
 <h2 id="本地查看"><a href="#本地查看" class="headerlink" title="本地查看"></a>本地查看</h2><p>执行一下命令出现<code>INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</code>的提示后可在浏览器输入<code>http://localhost:4000</code>进行查看</p>
 <pre><code>$ hexo s
 </code></pre><h2 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h2><pre><code>$ hexo g --d
@@ -452,7 +460,7 @@ $ npm install
 <pre><code>$ git clone https://github.com/iissnan/hexo-theme-next themes/next
 </code></pre><h2 id="启用"><a href="#启用" class="headerlink" title="启用"></a>启用</h2><p>修改<code>_config.yml</code>文件中的theme字段值为next</p>
 <pre><code>theme: next
-</code></pre><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="添加文章更新时间"><a href="#添加文章更新时间" class="headerlink" title="添加文章更新时间"></a>添加文章更新时间</h3><p>打开<code>themes\next\layout\post.swig</code>文件，在<code>{% if post.categories and post.categories.length %}</code>前添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;%if post.updated and post.updated &gt; post.date%&#125;</div><div class="line">  &lt;span class=&quot;post-updated&quot;&gt;</div><div class="line">	&amp;nbsp; | &amp;nbsp; &#123;&#123; __(&apos;post.updated&apos;) &#125;&#125;</div><div class="line">	&lt;time itemprop=&quot;dateUpdated&quot; datetime=&quot;&#123;&#123; moment(post.updated).format() &#125;&#125;&quot; content=&quot;&#123;&#123; date(post.updated, config.date_format) &#125;&#125;&quot;&gt;</div><div class="line">	  &#123;&#123; date(post.updated, config.date_format) &#125;&#125;</div><div class="line">	&lt;/time&gt;</div><div class="line">  &lt;/span&gt;</div><div class="line">&#123;% endif %&#125;</div></pre></td></tr></table></figure></p>
+</code></pre><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="添加文章更新时间"><a href="#添加文章更新时间" class="headerlink" title="添加文章更新时间"></a>添加文章更新时间</h3><p>打开<code>themes\next\layout\_macro\post.swig</code>文件，在<code>{% if post.categories and post.categories.length %}</code>前添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;%if post.updated and post.updated &gt; post.date%&#125;</div><div class="line">  &lt;span class=&quot;post-updated&quot;&gt;</div><div class="line">	&amp;nbsp; | &amp;nbsp; &#123;&#123; __(&apos;post.updated&apos;) &#125;&#125;</div><div class="line">	&lt;time itemprop=&quot;dateUpdated&quot; datetime=&quot;&#123;&#123; moment(post.updated).format() &#125;&#125;&quot; content=&quot;&#123;&#123; date(post.updated, config.date_format) &#125;&#125;&quot;&gt;</div><div class="line">	  &#123;&#123; date(post.updated, config.date_format) &#125;&#125;</div><div class="line">	&lt;/time&gt;</div><div class="line">  &lt;/span&gt;</div><div class="line">&#123;% endif %&#125;</div></pre></td></tr></table></figure></p>
 <p>打开<code>\themes\next\languages\zh-Hans.yml</code>文件，在<code>post:</code>下加入(语言不同文件名和添加的内容也不相同)</p>
 <pre><code>updated: 更新于
 </code></pre><p>修改主题配置文件<code>themes/next/_config.yml</code>加上</p>
@@ -492,10 +500,6 @@ $ npm install
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/08/01/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
             
           </div>
 
@@ -575,7 +579,7 @@ $ npm install
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -585,7 +589,7 @@ $ npm install
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -614,7 +618,7 @@ $ npm install
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub账号"><span class="nav-number">2.1.</span> <span class="nav-text">GitHub账号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git"><span class="nav-number">2.2.</span> <span class="nav-text">Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js"><span class="nav-number">2.3.</span> <span class="nav-text">Node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown编辑器"><span class="nav-number">2.4.</span> <span class="nav-text">Markdown编辑器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Hexo"><span class="nav-number">3.</span> <span class="nav-text">使用Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo"><span class="nav-number">3.1.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建站"><span class="nav-number">3.2.</span> <span class="nav-text">建站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Hexo"><span class="nav-number">3.3.</span> <span class="nav-text">配置Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地查看"><span class="nav-number">3.4.</span> <span class="nav-text">本地查看</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布"><span class="nav-number">3.5.</span> <span class="nav-text">发布</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装NexT主题"><span class="nav-number">4.</span> <span class="nav-text">安装NexT主题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载"><span class="nav-number">4.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启用"><span class="nav-number">4.2.</span> <span class="nav-text">启用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">4.3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加文章更新时间"><span class="nav-number">4.3.1.</span> <span class="nav-text">添加文章更新时间</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub账号"><span class="nav-number">2.1.</span> <span class="nav-text">GitHub账号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git"><span class="nav-number">2.2.</span> <span class="nav-text">Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js"><span class="nav-number">2.3.</span> <span class="nav-text">Node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown编辑器"><span class="nav-number">2.4.</span> <span class="nav-text">Markdown编辑器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Hexo"><span class="nav-number">3.</span> <span class="nav-text">使用Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo"><span class="nav-number">3.1.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建站"><span class="nav-number">3.2.</span> <span class="nav-text">建站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Hexo"><span class="nav-number">3.3.</span> <span class="nav-text">配置Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写作"><span class="nav-number">3.4.</span> <span class="nav-text">写作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地查看"><span class="nav-number">3.5.</span> <span class="nav-text">本地查看</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布"><span class="nav-number">3.6.</span> <span class="nav-text">发布</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装NexT主题"><span class="nav-number">4.</span> <span class="nav-text">安装NexT主题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载"><span class="nav-number">4.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启用"><span class="nav-number">4.2.</span> <span class="nav-text">启用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">4.3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加文章更新时间"><span class="nav-number">4.3.1.</span> <span class="nav-text">添加文章更新时间</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
           </div>
         </section>
