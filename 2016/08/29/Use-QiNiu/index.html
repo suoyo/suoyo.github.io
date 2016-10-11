@@ -102,7 +102,7 @@ Atom
 <meta property="og:image" content="http://ob9p5reln.bkt.clouddn.com/e3c969e1d9768c6ba5312b0b8454515f.png">
 <meta property="og:image" content="http://ob9p5reln.bkt.clouddn.com/4842c7251f801682ba09dd4d135154b6.png">
 <meta property="og:image" content="http://ob9p5reln.bkt.clouddn.com/bc5d7dcc278d3772b8d0db6c3ff66b9f.png">
-<meta property="og:updated_time" content="2016-10-11T02:54:13.868Z">
+<meta property="og:updated_time" content="2016-10-11T02:56:16.697Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Markdown中插入图片——使用七牛云作为图床">
 <meta name="twitter:description" content="背景刚刚接触Markdown，发现使用Markdown写作插入图片非常麻烦，各种搜索最后确定使用七牛云作为图床，对于我来说免费的10G空间足够使用了，接下来便是另一个麻烦的问题：怎么在Markdown快速的插入图片，又是各种搜索。。。无意间发现了一款非常好用的Atom插件，妈妈再也不用担心我如何Markdown中插入图片了，soeasy！
@@ -293,7 +293,7 @@ Atom
 			
 			  <span class="post-updated">
 				&nbsp; | &nbsp; 更新于
-				<time itemprop="dateUpdated" datetime="2016-10-11T10:54:13+08:00" content="2016-10-11">
+				<time itemprop="dateUpdated" datetime="2016-10-11T10:56:16+08:00" content="2016-10-11">
 				  2016-10-11
 				</time>
 			  </span>
@@ -364,14 +364,10 @@ Atom
 </ol>
 <p>搞定！</p>
 <h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><p>若提示<code>upload error(400): incorrect zone, please use up-z1.qiniu.com</code>，解决方法有两种：</p>
-<ol>
-<li>在Atom中点击<code>Settings</code> - <code>OPEN CONFIG FOLDER</code></li>
-</ol>
+<p>1.在Atom中点击<code>Settings</code> - <code>OPEN CONFIG FOLDER</code></p>
 <p><img src="http://ob9p5reln.bkt.clouddn.com/bc5d7dcc278d3772b8d0db6c3ff66b9f.png" alt="open config folder"></p>
 <p>找到<code>\packages\qiniu-uploader\node_modules\qiniu\qiniu</code>文件夹下的<code>conf.js</code>文件(或者直接用<a href="https://www.voidtools.com/" target="_blank" rel="external">Everything</a>搜索<code>conf.js</code>)，修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//exports.UP_HOST = &apos;http://upload.qiniu.com&apos;;</div><div class="line">exports.UP_HOST = &apos;http://up-z1.qiniu.com&apos;;</div></pre></td></tr></table></figure></p>
-<ol>
-<li>使用华东的空间</li>
-</ol>
+<p>2.使用华东的空间</p>
 
       
     </div>
