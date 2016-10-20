@@ -87,7 +87,7 @@
 <meta name="description" content="SearchDialog(待完善)创建一个SearchDialog的搜索配置文件
 在res目录下创建一个xml文件夹(若有则可跳过此步)：右键点击res找到New-Android resource directory，在弹出的窗口中选择Resource type为xml，点击OK创建。
 
-在xml文件夹下创建一个searchable.xml文件：右键点击xml找到New-XML-Values XM">
+在xml文件夹下创建一个searchable.xml文件：右键点击xml找到New-XML resource">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在Android中添加搜索框">
 <meta property="og:url" content="http://suoyo.github.io/2016/10/13/Android-Search/index.html">
@@ -95,19 +95,19 @@
 <meta property="og:description" content="SearchDialog(待完善)创建一个SearchDialog的搜索配置文件
 在res目录下创建一个xml文件夹(若有则可跳过此步)：右键点击res找到New-Android resource directory，在弹出的窗口中选择Resource type为xml，点击OK创建。
 
-在xml文件夹下创建一个searchable.xml文件：右键点击xml找到New-XML-Values XM">
+在xml文件夹下创建一个searchable.xml文件：右键点击xml找到New-XML resource">
 <meta property="og:image" content="http://ob9p5reln.bkt.clouddn.com/2016-10-17adjustNothing.gif">
 <meta property="og:image" content="http://ob9p5reln.bkt.clouddn.com/2016-10-17-adjustPan.gif">
 <meta property="og:image" content="http://ob9p5reln.bkt.clouddn.com/2016-10-17other.gif">
 <meta property="og:image" content="http://ob9p5reln.bkt.clouddn.com/37b3853c001fd8302d06a9646198faac.png">
 <meta property="og:image" content="http://ob9p5reln.bkt.clouddn.com/4d55f7387d574429c3892a9146cf1469.png">
-<meta property="og:updated_time" content="2016-10-17T08:32:55.639Z">
+<meta property="og:updated_time" content="2016-10-18T02:03:25.213Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Android中添加搜索框">
 <meta name="twitter:description" content="SearchDialog(待完善)创建一个SearchDialog的搜索配置文件
 在res目录下创建一个xml文件夹(若有则可跳过此步)：右键点击res找到New-Android resource directory，在弹出的窗口中选择Resource type为xml，点击OK创建。
 
-在xml文件夹下创建一个searchable.xml文件：右键点击xml找到New-XML-Values XM">
+在xml文件夹下创建一个searchable.xml文件：右键点击xml找到New-XML resource">
 <meta name="twitter:image" content="http://ob9p5reln.bkt.clouddn.com/2016-10-17adjustNothing.gif">
 
 
@@ -292,8 +292,8 @@
 			
 			  <span class="post-updated">
 				&nbsp; | &nbsp; 更新于
-				<time itemprop="dateUpdated" datetime="2016-10-17T16:32:55+08:00" content="2016-10-17">
-				  2016-10-17
+				<time itemprop="dateUpdated" datetime="2016-10-18T10:03:25+08:00" content="2016-10-18">
+				  2016-10-18
 				</time>
 			  </span>
 			
@@ -340,7 +340,7 @@
         <h1 id="SearchDialog-待完善"><a href="#SearchDialog-待完善" class="headerlink" title="SearchDialog(待完善)"></a>SearchDialog(待完善)</h1><h2 id="创建一个SearchDialog的搜索配置文件"><a href="#创建一个SearchDialog的搜索配置文件" class="headerlink" title="创建一个SearchDialog的搜索配置文件"></a>创建一个SearchDialog的搜索配置文件</h2><ol>
 <li><p>在<code>res</code>目录下创建一个<code>xml</code>文件夹(若有则可跳过此步)：右键点击<code>res</code>找到<code>New</code>-<code>Android resource directory</code>，<br>在弹出的窗口中选择<code>Resource type</code>为<code>xml</code>，点击<code>OK</code>创建。</p>
 </li>
-<li><p>在<code>xml</code>文件夹下创建一个<code>searchable.xml</code>文件：右键点击<code>xml</code>找到<code>New</code>-<code>XML</code>-<code>Values XML File</code>,输入文件名<code>searchable</code>(推荐)。<br> PS. 不知道为什么，我创建的文件会自己跑到<code>values</code>文件夹下，我硬给挪到<code>xml</code>文件夹下了。</p>
+<li><p>在<code>xml</code>文件夹下创建一个<code>searchable.xml</code>文件：右键点击<code>xml</code>找到<code>New</code>-<code>XML resource file</code>,输入文件名<code>searchable</code>(推荐)，点击<code>OK</code>创建。</p>
 </li>
 <li><p>修改根节点为<code>&lt;searchable&gt;</code>,配置文件至少要包含一个<code>android:label</code>属性，例如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;searchable xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">            android:hint=&quot;@string/search_hint&quot;</div><div class="line">            android:label=&quot;@string/app_name&quot;&gt;</div><div class="line">&lt;/searchable&gt;</div></pre></td></tr></table></figure>
