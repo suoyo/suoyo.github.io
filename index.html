@@ -258,6 +258,126 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/21/Android-ListView/" itemprop="url">
+                  Android 开发总结：ListView
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-21T13:55:31+08:00" content="2016-10-21">
+              2016-10-21
+            </time>
+          </span>
+
+
+			
+			  <span class="post-updated">
+				&nbsp; | &nbsp; 更新于
+				<time itemprop="dateUpdated" datetime="2016-10-21T14:15:17+08:00" content="2016-10-21">
+				  2016-10-21
+				</time>
+			  </span>
+			
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/21/Android-ListView/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/21/Android-ListView/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/21/Android-ListView/" class="leancloud_visitors" data-flag-title="Android 开发总结：ListView">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="ScrollView嵌套ListView"><a href="#ScrollView嵌套ListView" class="headerlink" title="ScrollView嵌套ListView"></a>ScrollView嵌套ListView</h1><h2 id="自定义ListView"><a href="#自定义ListView" class="headerlink" title="自定义ListView"></a>自定义ListView</h2><h1 id="长按item"><a href="#长按item" class="headerlink" title="长按item"></a>长按item</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//点击</span></div><div class="line">lv.setOnItemClickListener(<span class="keyword">new</span> AdapterView.OnItemClickListener()</div><div class="line">&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onItemClick</span><span class="params">(AdapterView&lt;?&gt; parent, View view,</span></span></div><div class="line">            <span class="keyword">int</span> position, <span class="keyword">long</span> id)</div><div class="line">    &#123;</div><div class="line">      <span class="comment">//do something</span></div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">///长按</span></div><div class="line">lv.setOnItemLongClickListener(<span class="keyword">new</span> AdapterView.OnItemLongClickListener()</div><div class="line">&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onItemLongClick</span><span class="params">(AdapterView&lt;?&gt; arg0, View arg1,</span></span></div><div class="line">            <span class="keyword">int</span> position, <span class="keyword">long</span> arg3)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">// do something</span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>; <span class="comment">//这里应设为true，否则会触发点击事件</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/13/Android-Search/" itemprop="url">
                   在Android中添加搜索框
                 </a>
@@ -281,8 +401,8 @@
 			
 			  <span class="post-updated">
 				&nbsp; | &nbsp; 更新于
-				<time itemprop="dateUpdated" datetime="2016-10-18T10:03:25+08:00" content="2016-10-18">
-				  2016-10-18
+				<time itemprop="dateUpdated" datetime="2016-10-21T14:05:16+08:00" content="2016-10-21">
+				  2016-10-21
 				</time>
 			  </span>
 			
@@ -333,7 +453,11 @@
 <li><p>在<code>xml</code>文件夹下创建一个<code>searchable.xml</code>文件：右键点击<code>xml</code>找到<code>New</code>-<code>XML resource file</code>,输入文件名<code>searchable</code>(推荐)，点击<code>OK</code>创建。</p>
 </li>
 <li><p>修改根节点为<code>&lt;searchable&gt;</code>,配置文件至少要包含一个<code>android:label</code>属性，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;searchable xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">            android:hint=&quot;@string/search_hint&quot;</div><div class="line">            android:label=&quot;@string/app_name&quot;&gt;</div><div class="line">&lt;/searchable&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">searchable</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">            <span class="attr">android:hint</span>=<span class="string">"@string/search_hint"</span></div><div class="line">            <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">searchable</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li><code>android:label</code>是唯一必须的属性，它应该指向一个应用程序名称的字符串资源。</li>
+<li><code>android:hint</code>虽然不是必须的属性，但是还是建议添加它来告诉用户应该在搜索框中输入什么内容。</li>
+</ul>
 </li>
 </ol>
           <div class="post-more-link text-center">
@@ -516,7 +640,7 @@
               
                 
                 <a class="post-title-link" href="/2016/09/27/Android-Study-Notes/" itemprop="url">
-                  安卓学习笔记
+                  Android学习笔记
                 </a>
               
             
@@ -538,8 +662,8 @@
 			
 			  <span class="post-updated">
 				&nbsp; | &nbsp; 更新于
-				<time itemprop="dateUpdated" datetime="2016-10-12T16:11:46+08:00" content="2016-10-12">
-				  2016-10-12
+				<time itemprop="dateUpdated" datetime="2016-10-21T13:56:56+08:00" content="2016-10-21">
+				  2016-10-21
 				</time>
 			  </span>
 			
@@ -561,7 +685,7 @@
 
           
           
-             <span id="/2016/09/27/Android-Study-Notes/" class="leancloud_visitors" data-flag-title="安卓学习笔记">
+             <span id="/2016/09/27/Android-Study-Notes/" class="leancloud_visitors" data-flag-title="Android学习笔记">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -913,7 +1037,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
