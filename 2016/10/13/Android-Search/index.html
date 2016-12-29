@@ -97,7 +97,7 @@
 <meta property="og:image" content="http://ob9p5reln.bkt.clouddn.com/2016-10-17other.gif">
 <meta property="og:image" content="http://ob9p5reln.bkt.clouddn.com/37b3853c001fd8302d06a9646198faac.png">
 <meta property="og:image" content="http://ob9p5reln.bkt.clouddn.com/4d627e93e0d2a058ad71ed3e59086f64.png">
-<meta property="og:updated_time" content="2016-12-29T08:54:18.072Z">
+<meta property="og:updated_time" content="2016-12-29T09:33:30.812Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Android中添加搜索框">
 <meta name="twitter:description" content="SearchView搜索一番发现大多数都是用了ActionBar，而我的项目中没有使用ActionBar，又因为使用了Fragment所以SearchDialog也不能使用，只能自己瞎摸索了。
@@ -286,7 +286,7 @@
 			
 			  <span class="post-updated">
 				&nbsp; | &nbsp; 更新于
-				<time itemprop="dateUpdated" datetime="2016-12-29T16:54:18+08:00" content="2016-12-29">
+				<time itemprop="dateUpdated" datetime="2016-12-29T17:33:30+08:00" content="2016-12-29">
 				  2016-12-29
 				</time>
 			  </span>
@@ -333,6 +333,7 @@
       
         <h1 id="SearchView"><a href="#SearchView" class="headerlink" title="SearchView"></a>SearchView</h1><p>搜索一番发现大多数都是用了ActionBar，而我的项目中没有使用ActionBar，又因为使用了Fragment所以SearchDialog也不能使用，只能自己瞎摸索了。</p>
 <h2 id="配置清单文件"><a href="#配置清单文件" class="headerlink" title="配置清单文件"></a>配置清单文件</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">activity</span></span></div><div class="line">    <span class="attr">android:name</span>=<span class="string">".ui.MainActivity"</span></div><div class="line">    <span class="attr">android:launchMode</span>=<span class="string">"singleTop"</span></div><div class="line">    <span class="attr">android:windowSoftInputMode</span>=<span class="string">"adjustNothing"</span>&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>这里的<code>android:windowSoftInputMode</code>设置为<code>adjustNothing</code>,<img src="http://ob9p5reln.bkt.clouddn.com/2016-10-17adjustNothing.gif" alt="adjustNothing"><br>若设置为<code>adjustPan</code>时会变成这样：<br><img src="http://ob9p5reln.bkt.clouddn.com/2016-10-17-adjustPan.gif" alt="adjustPan"><br>其他参数会变成这样：<br><img src="http://ob9p5reln.bkt.clouddn.com/2016-10-17other.gif" alt="other"></p>
 <p>关于<code>android:windowSoftInputMode</code>属性见：<a href="http://blog.csdn.net/zhaokaiqiang1992/article/details/39761461" target="_blank" rel="external">【Android开发经验】android:windowSoftInputMode属性详解</a></p>
 <h3 id="更新"><a href="#更新" class="headerlink" title="-更新-"></a>-更新-</h3><p>因为在项目中有用到Fragment需要不同的模式，所以改为代码控制。</p>
