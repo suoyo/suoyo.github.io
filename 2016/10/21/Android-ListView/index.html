@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="ScrollView嵌套ListView自定义ListView长按item12345678910111213141516171819202122232425//点击lv.setOnItemClickListener(new AdapterView.OnItemClickListener()&amp;#123;    @Override    public void onItemClick(AdapterV">
+<meta name="description" content="ScrollView嵌套ListView自定义ListView目前的解决办法，给ListView设置固定高度,自定义InnerListView">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 开发总结：ListView">
 <meta property="og:url" content="http://suoyo.github.io/2016/10/21/Android-ListView/index.html">
 <meta property="og:site_name" content="Suoyo's Notes">
-<meta property="og:description" content="ScrollView嵌套ListView自定义ListView长按item12345678910111213141516171819202122232425//点击lv.setOnItemClickListener(new AdapterView.OnItemClickListener()&amp;#123;    @Override    public void onItemClick(AdapterV">
-<meta property="og:updated_time" content="2016-10-21T06:15:17.972Z">
+<meta property="og:description" content="ScrollView嵌套ListView自定义ListView目前的解决办法，给ListView设置固定高度,自定义InnerListView">
+<meta property="og:updated_time" content="2016-12-29T05:30:25.779Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 开发总结：ListView">
-<meta name="twitter:description" content="ScrollView嵌套ListView自定义ListView长按item12345678910111213141516171819202122232425//点击lv.setOnItemClickListener(new AdapterView.OnItemClickListener()&amp;#123;    @Override    public void onItemClick(AdapterV">
+<meta name="twitter:description" content="ScrollView嵌套ListView自定义ListView目前的解决办法，给ListView设置固定高度,自定义InnerListView">
 
 
 
@@ -277,8 +277,8 @@
 			
 			  <span class="post-updated">
 				&nbsp; | &nbsp; 更新于
-				<time itemprop="dateUpdated" datetime="2016-10-21T14:15:17+08:00" content="2016-10-21">
-				  2016-10-21
+				<time itemprop="dateUpdated" datetime="2016-12-29T13:30:25+08:00" content="2016-12-29">
+				  2016-12-29
 				</time>
 			  </span>
 			
@@ -322,7 +322,10 @@
       
 
       
-        <h1 id="ScrollView嵌套ListView"><a href="#ScrollView嵌套ListView" class="headerlink" title="ScrollView嵌套ListView"></a>ScrollView嵌套ListView</h1><h2 id="自定义ListView"><a href="#自定义ListView" class="headerlink" title="自定义ListView"></a>自定义ListView</h2><h1 id="长按item"><a href="#长按item" class="headerlink" title="长按item"></a>长按item</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//点击</span></div><div class="line">lv.setOnItemClickListener(<span class="keyword">new</span> AdapterView.OnItemClickListener()</div><div class="line">&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onItemClick</span><span class="params">(AdapterView&lt;?&gt; parent, View view,</span></span></div><div class="line">            <span class="keyword">int</span> position, <span class="keyword">long</span> id)</div><div class="line">    &#123;</div><div class="line">      <span class="comment">//do something</span></div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">///长按</span></div><div class="line">lv.setOnItemLongClickListener(<span class="keyword">new</span> AdapterView.OnItemLongClickListener()</div><div class="line">&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onItemLongClick</span><span class="params">(AdapterView&lt;?&gt; arg0, View arg1,</span></span></div><div class="line">            <span class="keyword">int</span> position, <span class="keyword">long</span> arg3)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">// do something</span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>; <span class="comment">//这里应设为true，否则会触发点击事件</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+        <h1 id="ScrollView嵌套ListView"><a href="#ScrollView嵌套ListView" class="headerlink" title="ScrollView嵌套ListView"></a>ScrollView嵌套ListView</h1><h2 id="自定义ListView"><a href="#自定义ListView" class="headerlink" title="自定义ListView"></a>自定义ListView</h2><p>目前的解决办法，给ListView设置固定高度,自定义InnerListView<br><a id="more"></a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerListview</span> <span class="keyword">extends</span> <span class="title">ListView</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> ScrollView parentScrollView;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">InnerListview</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> ScrollView <span class="title">getParentScrollView</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> parentScrollView;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setParentScrollView</span><span class="params">(ScrollView parentScrollView)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.parentScrollView = parentScrollView;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onInterceptTouchEvent</span><span class="params">(MotionEvent ev)</span> </span>&#123;</div><div class="line">        <span class="keyword">switch</span> (ev.getAction()) &#123;</div><div class="line">            <span class="keyword">case</span> MotionEvent.ACTION_DOWN:</div><div class="line"></div><div class="line">                setParentScrollAble(<span class="keyword">false</span>);<span class="comment">//当手指触到listview的时候，让父ScrollView交出ontouch权限，也就是让父scrollview停住不能滚动</span></div><div class="line">            <span class="keyword">case</span> MotionEvent.ACTION_MOVE:</div><div class="line"></div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> MotionEvent.ACTION_UP:</div><div class="line"></div><div class="line">            <span class="keyword">case</span> MotionEvent.ACTION_CANCEL:</div><div class="line"></div><div class="line">                setParentScrollAble(<span class="keyword">true</span>);<span class="comment">//当手指松开时，让父ScrollView重新拿到onTouch权限</span></div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                <span class="keyword">break</span>;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onInterceptTouchEvent(ev);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 是否把滚动事件交给父scrollview</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> flag</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setParentScrollAble</span><span class="params">(<span class="keyword">boolean</span> flag)</span> </span>&#123;</div><div class="line">        parentScrollView.requestDisallowInterceptTouchEvent(!flag);<span class="comment">//这里的parentScrollView就是listview外面的那个scrollview</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="长按item"><a href="#长按item" class="headerlink" title="长按item"></a>长按item</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//点击</span></div><div class="line">lv.setOnItemClickListener(<span class="keyword">new</span> AdapterView.OnItemClickListener()</div><div class="line">&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onItemClick</span><span class="params">(AdapterView&lt;?&gt; parent, View view,</span></span></div><div class="line">            <span class="keyword">int</span> position, <span class="keyword">long</span> id)</div><div class="line">    &#123;</div><div class="line">      <span class="comment">//do something</span></div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">///长按</span></div><div class="line">lv.setOnItemLongClickListener(<span class="keyword">new</span> AdapterView.OnItemLongClickListener()</div><div class="line">&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onItemLongClick</span><span class="params">(AdapterView&lt;?&gt; arg0, View arg1,</span></span></div><div class="line">            <span class="keyword">int</span> position, <span class="keyword">long</span> arg3)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">// do something</span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>; <span class="comment">//这里应设为true，否则会触发点击事件</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>参考：<a href="http://www.eoeandroid.com/thread-246995-1-1.html" target="_blank" rel="external">android之ScrollView里嵌套ListView</a></p>
 
       
     </div>
@@ -363,6 +366,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/29/git-notes/" rel="prev" title="Git Notes">
+                Git Notes <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -434,7 +441,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -444,7 +451,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
