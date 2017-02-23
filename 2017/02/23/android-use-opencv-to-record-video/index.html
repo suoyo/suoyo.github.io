@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Git," />
+  <meta name="keywords" content="Android,OpenCV," />
 
 
 
@@ -84,28 +84,16 @@
 
 
 
-<meta name="description" content="Checkout 时报错$ git checkout develop
-error: Your local changes to the following files would be overwritten by checkout:
-        ……
-Please commit your changes or stash them before you switch branches.
-er">
+<meta name="description" content="因为项目需要研究OpenCV了好久，其中一个需求是在跟踪的同时进行录像，各种查找资料始终没有找到完美的解决方案，最后发现OpenCV 3.2之后的版本支持录像了，试了一下，效果还不错。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git Notes">
-<meta property="og:url" content="http://suoyo.github.io/2016/12/29/git-notes/index.html">
+<meta property="og:title" content="Android 中使用OpenCV录像">
+<meta property="og:url" content="http://suoyo.github.io/2017/02/23/android-use-opencv-to-record-video/index.html">
 <meta property="og:site_name" content="Suoyo's Notes">
-<meta property="og:description" content="Checkout 时报错$ git checkout develop
-error: Your local changes to the following files would be overwritten by checkout:
-        ……
-Please commit your changes or stash them before you switch branches.
-er">
-<meta property="og:updated_time" content="2017-02-23T09:13:04.022Z">
+<meta property="og:description" content="因为项目需要研究OpenCV了好久，其中一个需求是在跟踪的同时进行录像，各种查找资料始终没有找到完美的解决方案，最后发现OpenCV 3.2之后的版本支持录像了，试了一下，效果还不错。">
+<meta property="og:updated_time" content="2017-02-23T09:55:26.100Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git Notes">
-<meta name="twitter:description" content="Checkout 时报错$ git checkout develop
-error: Your local changes to the following files would be overwritten by checkout:
-        ……
-Please commit your changes or stash them before you switch branches.
-er">
+<meta name="twitter:title" content="Android 中使用OpenCV录像">
+<meta name="twitter:description" content="因为项目需要研究OpenCV了好久，其中一个需求是在跟踪的同时进行录像，各种查找资料始终没有找到完美的解决方案，最后发现OpenCV 3.2之后的版本支持录像了，试了一下，效果还不错。">
 
 
 
@@ -126,9 +114,9 @@ er">
 
 
 
-  <link rel="canonical" href="http://suoyo.github.io/2016/12/29/git-notes/"/>
+  <link rel="canonical" href="http://suoyo.github.io/2017/02/23/android-use-opencv-to-record-video/"/>
 
-  <title> Git Notes | Suoyo's Notes </title>
+  <title> Android 中使用OpenCV录像 | Suoyo's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -268,7 +256,7 @@ er">
             
             
               
-                Git Notes
+                Android 中使用OpenCV录像
               
             
           </h1>
@@ -280,8 +268,8 @@ er">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-29T14:18:27+08:00" content="2016-12-29">
-              2016-12-29
+            <time itemprop="dateCreated" datetime="2017-02-23T17:35:22+08:00" content="2017-02-23">
+              2017-02-23
             </time>
           </span>
 
@@ -289,7 +277,7 @@ er">
 			
 			  <span class="post-updated">
 				&nbsp; | &nbsp; 更新于
-				<time itemprop="dateUpdated" datetime="2017-02-23T17:13:04+08:00" content="2017-02-23">
+				<time itemprop="dateUpdated" datetime="2017-02-23T17:55:26+08:00" content="2017-02-23">
 				  2017-02-23
 				</time>
 			  </span>
@@ -301,8 +289,8 @@ er">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/29/git-notes/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/29/git-notes/" itemprop="commentsCount"></span>
+                <a href="/2017/02/23/android-use-opencv-to-record-video/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/23/android-use-opencv-to-record-video/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -312,7 +300,7 @@ er">
 
           
           
-             <span id="/2016/12/29/git-notes/" class="leancloud_visitors" data-flag-title="Git Notes">
+             <span id="/2017/02/23/android-use-opencv-to-record-video/" class="leancloud_visitors" data-flag-title="Android 中使用OpenCV录像">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -334,22 +322,10 @@ er">
       
 
       
-        <h2 id="Checkout-时报错"><a href="#Checkout-时报错" class="headerlink" title="Checkout 时报错"></a>Checkout 时报错</h2><pre><code>$ git checkout develop
-error: Your local changes to the following files would be overwritten by checkout:
-        ……
-Please commit your changes or stash them before you switch branches.
-error: The following untracked working tree files would be overwritten by checkout:
-        ……
-Please move or remove them before you switch branches.
-Aborting
-</code></pre><a id="more"></a>
-<p>  执行<code>$ git reset --hard</code>后提示：</p>
-<pre><code>error: The following untracked working tree files would be overwritten by checkout:
-  ……
-Please move or remove them before you switch branches.
-Aborting
-</code></pre><p>  执行<code>$ git clean -d -fx</code>后重新checkout，问题解决。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://junch.github.io/%E6%8A%80%E5%B7%A7/2014/01/11/reprint-git-collision.html" target="_blank" rel="external">Git: 代码冲突常见解决方法</a><br><a href="http://www.iloveandroid.net/2015/10/05/studyGit_2/" target="_blank" rel="external">版本控制系统Git的分支管理</a></p>
+        <p>因为项目需要研究OpenCV了好久，其中一个需求是在跟踪的同时进行录像，各种查找资料始终没有找到完美的解决方案，最后发现OpenCV 3.2之后的版本支持录像了，试了一下，效果还不错。</p>
+<a id="more"></a>
+<p>代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (isRecord) &#123;</div><div class="line"></div><div class="line">    Log.w(TAG, <span class="string">"onCameraFrame: 录制"</span>);</div><div class="line">    <span class="keyword">if</span> (mVideoWriter == <span class="keyword">null</span>) &#123;</div><div class="line">        Log.w(TAG, <span class="string">"onCameraFrame: 初始化"</span>);</div><div class="line">        mVideoWriter = <span class="keyword">new</span> VideoWriter(recordfilepath(), VideoWriter.fourcc(<span class="string">'M'</span>, <span class="string">'J'</span>, <span class="string">'P'</span>, <span class="string">'G'</span>), <span class="number">25.0</span>D, mRgba.size());</div><div class="line">        mVideoWriter.open(recordfilepath(), VideoWriter.fourcc(<span class="string">'M'</span>, <span class="string">'J'</span>, <span class="string">'P'</span>, <span class="string">'G'</span>), <span class="number">25.0</span>D, mRgba.size());</div><div class="line">        Log.i(TAG, <span class="string">"onCameraFrame: recordFilePath"</span> + recordfilepath());</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (!mVideoWriter.isOpened()) &#123;</div><div class="line">        Log.w(TAG, <span class="string">"onCameraFrame: open"</span>);</div><div class="line">        mVideoWriter.open(recordfilepath(), VideoWriter.fourcc(<span class="string">'M'</span>, <span class="string">'J'</span>, <span class="string">'P'</span>, <span class="string">'G'</span>), <span class="number">25.0</span>D, mRgba.size());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    mVideoWriter.write(mRgba);</div><div class="line">    Log.w(TAG, <span class="string">"onCameraFrame: 写入中 "</span> + mRgba.toString());</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">if</span> (mVideoWriter != <span class="keyword">null</span>) &#123;</div><div class="line">        mVideoWriter.release();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>VideoWriter</code> 的四个参数：第一个为文件路径， 文件名以<code>.avi</code>结尾，第二个参数设置编码格式，目前只支持<code>MJPG</code>格式，第三个参数为帧率，第四个参数为画面大小。<br>停止录像时调用<code>release()</code>方法即可。</p>
 
       
     </div>
@@ -372,7 +348,9 @@ Aborting
       
         <div class="post-tags">
           
-            <a href="/tags/Git/" rel="tag">#Git</a>
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/OpenCV/" rel="tag">#OpenCV</a>
           
         </div>
       
@@ -381,17 +359,13 @@ Aborting
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/21/Android-ListView/" rel="next" title="Android 开发总结：ListView">
-                <i class="fa fa-chevron-left"></i> Android 开发总结：ListView
+              <a href="/2017/02/09/android-switchbutton-style/" rel="next" title="使用SwitchCompat简单实现相机切换按钮">
+                <i class="fa fa-chevron-left"></i> 使用SwitchCompat简单实现相机切换按钮
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/09/android-switchbutton-style/" rel="prev" title="使用SwitchCompat简单实现相机切换按钮">
-                使用SwitchCompat简单实现相机切换按钮 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -438,8 +412,8 @@ Aborting
 
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/29/git-notes/"
-           data-title="Git Notes" data-url="http://suoyo.github.io/2016/12/29/git-notes/">
+      <div class="ds-thread" data-thread-key="2017/02/23/android-use-opencv-to-record-video/"
+           data-title="Android 中使用OpenCV录像" data-url="http://suoyo.github.io/2017/02/23/android-use-opencv-to-record-video/">
       </div>
     
   </div>
@@ -526,7 +500,7 @@ Aborting
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Checkout-时报错"><span class="nav-number">1.</span> <span class="nav-text">Checkout 时报错</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
