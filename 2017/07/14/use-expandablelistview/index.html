@@ -1,0 +1,932 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="前言  好久没写博客了，距离上一篇快半年了吧，期间经历了好多。上一家公司拖欠工资三个月，之后自己离职玩了一个月，4月份换到新公司工作到现在已经转正了，苦逼的996/995轮休的加班，整天忙的跟狗一样，这几天好不容易临时闲下来整理一下发现自己落了好多东西，要加油了。好歹这几个月干成了几件事：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单使用ExpandableListView">
+<meta property="og:url" content="http://suoyo.github.io/2017/07/14/use-expandablelistview/index.html">
+<meta property="og:site_name" content="Suoyo's Notes">
+<meta property="og:description" content="前言  好久没写博客了，距离上一篇快半年了吧，期间经历了好多。上一家公司拖欠工资三个月，之后自己离职玩了一个月，4月份换到新公司工作到现在已经转正了，苦逼的996/995轮休的加班，整天忙的跟狗一样，这几天好不容易临时闲下来整理一下发现自己落了好多东西，要加油了。好歹这几个月干成了几件事：">
+<meta property="og:image" content="http://ob9p5reln.bkt.clouddn.com/58d9ae490cb48ce881eb072bd6581a21.png">
+<meta property="og:image" content="http://ob9p5reln.bkt.clouddn.com/expandablelistview.gif">
+<meta property="og:updated_time" content="2017-07-19T09:15:05.427Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="简单使用ExpandableListView">
+<meta name="twitter:description" content="前言  好久没写博客了，距离上一篇快半年了吧，期间经历了好多。上一家公司拖欠工资三个月，之后自己离职玩了一个月，4月份换到新公司工作到现在已经转正了，苦逼的996/995轮休的加班，整天忙的跟狗一样，这几天好不容易临时闲下来整理一下发现自己落了好多东西，要加油了。好歹这几个月干成了几件事：">
+<meta name="twitter:image" content="http://ob9p5reln.bkt.clouddn.com/58d9ae490cb48ce881eb072bd6581a21.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://suoyo.github.io/2017/07/14/use-expandablelistview/"/>
+
+
+
+
+
+  <title>简单使用ExpandableListView | Suoyo's Notes</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?UA-83382252-1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Suoyo's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://suoyo.github.io/2017/07/14/use-expandablelistview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yongchao Suo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Suoyo's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">简单使用ExpandableListView</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T19:39:31+08:00">
+                2017-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+			
+			  <span class="post-updated">
+				&nbsp; | &nbsp; 更新于
+				<time itemprop="dateUpdated" datetime="2017-07-19T17:15:05+08:00" content="2017-07-19">
+				  2017-07-19
+				</time>
+			  </span>
+			
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/14/use-expandablelistview/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/07/14/use-expandablelistview/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/07/14/use-expandablelistview/" class="leancloud_visitors" data-flag-title="简单使用ExpandableListView">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>  好久没写博客了，距离上一篇快半年了吧，期间经历了好多。上一家公司拖欠工资三个月，之后自己离职玩了一个月，4月份换到新公司工作到现在已经转正了，苦逼的996/995轮休的加班，整天忙的跟狗一样，这几天好不容易临时闲下来整理一下发现自己落了好多东西，要加油了。好歹这几个月干成了几件事：</p>
+  <a id="more"></a>
+<ol>
+<li>申请劳动仲裁，结果是老板赔偿工资，自己也是运气好，躺赢，只去法律援助中心签了几个字之后就等到了律师的电话得知调解完了，赔偿我工资，哈哈，感谢律师，感谢忙前忙后找律师的前同事。</li>
+<li>抽空把多说迁移到网易云跟帖，后来又得知网易云跟帖要关闭，苦逼的我刚刚又迁移到Disqus。</li>
+<li>买了个域名：suoyo.tech，为啥是tech呢？便宜。</li>
+<li>加班三个月，技术又有了一点提高，不过还是在比较菜的水平，加油吧。</li>
+<li>租了一室一厅的新房子，在南京总算有个自己的小小家了，家里催着结婚，买房要靠自己，在纠结在临沂买房还是在南京买房，南京的房价好吓人，不管在哪里，加油加油。</li>
+<li>自己之前瞎作买的乱七八糟的东西，欠款一万多终于还有五千要还清了，哈哈哈哈哈哈….</li>
+</ol>
+<p>  好久没有写博客了，都快忘记怎么写了，慢慢拾起来吧，反正也没人看，自己随便记录一些，至今还不知道给博客起个啥名字，自己也没有一个好的网名…</p>
+<p>  废话扯了一大堆，回归正题。</p>
+<p>  现在做的项目中有一个效果图是这样的：</p>
+<p>   <img src="http://ob9p5reln.bkt.clouddn.com/58d9ae490cb48ce881eb072bd6581a21.png" alt="img_ui_expandablelistview"></p>
+<p>   看到图的我一脸懵逼啊，这是要嵌套吗？嵌套好麻烦，网上搜了一下，发现了有点冷门的ExpandableListView，了解了一下之后就决定用它了。</p>
+<h1 id="ExpandableListView定义"><a href="#ExpandableListView定义" class="headerlink" title="ExpandableListView定义"></a>ExpandableListView定义</h1><p> <br> </p>
+<blockquote>
+<p>A view that shows items in a vertically scrolling two-level list. This differs from the ListView by allowing two levels: groups which can individually be expanded to show its children. The items come from the ExpandableListAdapter associated with this view.</p>
+</blockquote>
+<p>  详见<a href="https://developer.android.com/reference/android/widget/ExpandableListView.html" target="_blank" rel="external">ExpandableListView</a>，用我这没过四级的渣渣英语翻译过来就是：一个在可以垂直滚动的两级列表中展示项目的View。它由于允许两级而不同于ListView：各组可以单独展开来展示它的子项目。项目来自于这个View关联的ExpandableListAdapter。</p>
+<h1 id="ExpandableListViewd的使用"><a href="#ExpandableListViewd的使用" class="headerlink" title="ExpandableListViewd的使用"></a>ExpandableListViewd的使用</h1><h2 id="布局文件"><a href="#布局文件" class="headerlink" title="布局文件"></a>布局文件</h2><ol>
+<li><p>ExpandableListView</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ExpandableListView</span></span></div><div class="line">  <span class="attr">android:id</span>=<span class="string">"@+id/ex_list_view"</span></div><div class="line">  <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">  <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">  <span class="attr">android:cacheColorHint</span>=<span class="string">"#00000000"</span>/&gt;</div></pre></td></tr></table></figure>
+<p>这里有个地方需要注意：</p>
+<blockquote>
+<p>Note: You cannot use the value wrap_content for the android:layout_height attribute of a ExpandableListView in XML if the parent’s size is also not strictly specified (for example, if the parent were ScrollView you could not specify wrap_content since it also can be any length. However, you can use wrap_content if the ExpandableListView parent has a specific size, such as 100 pixels.</p>
+</blockquote>
+<p>当ExpandableListView的父布局没有固定的值的时候，ExpandableListView的<code>android:layout_height</code>属性不能设置为<code>wrap_content</code>。</p>
+<ul>
+<li><code>android:cacheColorHint=&quot;#00000000&quot;</code> 可以去除拖动时产生的黑色阴影(把这行去掉我也没发现什么不一样)</li>
+</ul>
+</li>
+<li><p>组布局：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">              <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">              <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">              <span class="attr">android:background</span>=<span class="string">"@color/background"</span></div><div class="line">              <span class="attr">android:descendantFocusability</span>=<span class="string">"blocksDescendants"</span></div><div class="line">              <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/tv_department"</span></div><div class="line">        <span class="attr">style</span>=<span class="string">"@style/tv_order_black"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></div><div class="line">        <span class="attr">android:background</span>=<span class="string">"@color/background"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">CheckBox</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/cb_department"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_marginRight</span>=<span class="string">"@dimen/spacing_small"</span></div><div class="line">        <span class="attr">android:button</span>=<span class="string">"@drawable/selector_img_type_hide"</span>/&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li><code>android:descendantFocusability</code> 定义ViewGroup与其子布局之间的关系，设置为<code>blocksDescendants</code>覆盖子类控件直接获得焦点，防止出现CheckBox取得焦点而导致item无法点击的情况</li>
+</ul>
+<p>这里放了一个CheckBox来实现点击展开折叠的效果，其实ExpandableListView是有自带的<code>Indicator</code>的，不过我要实现UI图，就自己设置了。</p>
+</li>
+</ol>
+<h2 id="Jva代码"><a href="#Jva代码" class="headerlink" title="Jva代码"></a>Jva代码</h2><p>  继承并实现BaseExpandableListAdapter中的方法：</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DepartmentPeopleAdapter</span> <span class="keyword">extends</span> <span class="title">BaseExpandableListAdapter</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Context mContext;</div><div class="line">    <span class="comment">// 组元素数据</span></div><div class="line">    <span class="keyword">private</span> List&lt;String&gt; groupList;</div><div class="line">    <span class="comment">// 子元素数据</span></div><div class="line">    <span class="keyword">private</span> List&lt;List&lt;DailyPeople&gt;&gt; childList;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DepartmentPeopleAdapter</span><span class="params">(Context context, List&lt;String&gt; groupList, List&lt;List&lt;DailyPeople&gt;&gt; childList)</span> </span>&#123;</div><div class="line">        mContext = context;</div><div class="line">        <span class="keyword">this</span>.groupList = groupList;</div><div class="line">        <span class="keyword">this</span>.childList = childList;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 获取组元素数目</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getGroupCount</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> groupList.size();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 获取子元素数目</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getChildrenCount</span><span class="params">(<span class="keyword">int</span> groupPosition)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> childList.get(groupPosition).size();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 获取组元素对象</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getGroup</span><span class="params">(<span class="keyword">int</span> groupPosition)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> groupList.get(groupPosition);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 获取子元素对象</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getChild</span><span class="params">(<span class="keyword">int</span> groupPosition, <span class="keyword">int</span> childPosition)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> childList.get(groupPosition).get(childPosition);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 获取组元素id</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getGroupId</span><span class="params">(<span class="keyword">int</span> groupPosition)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> groupPosition;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 获取子元素id</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getChildId</span><span class="params">(<span class="keyword">int</span> groupPosition, <span class="keyword">int</span> childPosition)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> childPosition;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 组和子元素是否持有稳定的ID,也就是底层数据的改变不会影响到它们。</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasStableIds</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 加载并显示组元素</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">getGroupView</span><span class="params">(<span class="keyword">int</span> groupPosition, <span class="keyword">boolean</span> isExpanded, View convertView, ViewGroup parent)</span> </span>&#123;</div><div class="line"></div><div class="line">        …………</div><div class="line"></div><div class="line">        <span class="comment">// 设置右侧按钮显示状态</span></div><div class="line">        groupHolder.mCbDepartment.setChecked(isExpanded);</div><div class="line"></div><div class="line">        <span class="keyword">return</span> view;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 加载并显示子元素</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">getChildView</span><span class="params">(<span class="keyword">int</span> groupPosition, <span class="keyword">int</span> childPosition, <span class="keyword">boolean</span> isLastChild, View convertView, ViewGroup parent)</span> </span>&#123;</div><div class="line"></div><div class="line">        …………</div><div class="line"></div><div class="line">        <span class="keyword">return</span> view;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 是否选中指定位置上的子元素。</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isChildSelectable</span><span class="params">(<span class="keyword">int</span> groupPosition, <span class="keyword">int</span> childPosition)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    …………</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  设置ExpandableListView：</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 组监听点击事件</span></div><div class="line">mExListView.setOnGroupClickListener(<span class="keyword">new</span> ExpandableListView.OnGroupClickListener() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onGroupClick</span><span class="params">(ExpandableListView parent, View v, <span class="keyword">int</span> groupPosition, <span class="keyword">long</span> id)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"><span class="comment">// 子监听点击事件</span></div><div class="line">mExListView.setOnChildClickListener(<span class="keyword">new</span> ExpandableListView.OnChildClickListener() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onChildClick</span><span class="params">(ExpandableListView parent, View v, <span class="keyword">int</span> groupPosition, <span class="keyword">int</span> childPosition, <span class="keyword">long</span> id)</span> </span>&#123;</div><div class="line">        <span class="comment">// 点击事件</span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>  如果需要在数据加载完成后默认展开所有组，我的办法是遍历展开所有组，不知道有没有更好的办法：</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mExListView.expandGroup(i);</div></pre></td></tr></table></figure>
+<p>  最终效果：</p>
+<p>  <img src="http://ob9p5reln.bkt.clouddn.com/expandablelistview.gif" alt="效果图"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/23/android-use-opencv-to-record-video/" rel="next" title="Android 中使用OpenCV录像">
+                <i class="fa fa-chevron-left"></i> Android 中使用OpenCV录像
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/16/atom-install-packages-error/" rel="prev" title="Atom安装插件报错">
+                Atom安装插件报错 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          <style>
+        .ss_ad{
+            display: block;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            background: #0088CC;
+			font-family: Microsoft YaHei;
+        }
+		a.ss_ad{
+			border:0;
+			color:#fff;
+		}
+		a.ss_ad:hover{
+				text-decoration:none;
+				color:#fff;
+		}
+</style>
+<a class="ss_ad" style="font-size:22px" href="http://my.yizhihongxing.com/aff.php?aff=3671" target="_blank">搭个梯子，去看看墙外的世界</a>
+<a class="ss_ad" style="font-size:15px" href="http://my.yizhihongxing.com/aff.php?aff=3671" target="_blank">购买时输入促销码：laoxue，享受7折优惠，一年仅需70元！</a>
+
+
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Yongchao Suo" />
+          <p class="site-author-name" itemprop="name">Yongchao Suo</p>
+           
+              <p class="site-description motion-element" itemprop="description">Suoyo's Notes</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ExpandableListView定义"><span class="nav-number">2.</span> <span class="nav-text">ExpandableListView定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ExpandableListViewd的使用"><span class="nav-number">3.</span> <span class="nav-text">ExpandableListViewd的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#布局文件"><span class="nav-number">3.1.</span> <span class="nav-text">布局文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jva代码"><span class="nav-number">3.2.</span> <span class="nav-text">Jva代码</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yongchao Suo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://suoyo.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://suoyo.github.io/2017/07/14/use-expandablelistview/';
+          this.page.identifier = '2017/07/14/use-expandablelistview/';
+          this.page.title = '简单使用ExpandableListView';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://suoyo.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("ppDhjVs8jsYzWUpCdNcuuyei-gzGzoHsz", "zziJAbYp3XCcfPz70RLtN0O4");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
