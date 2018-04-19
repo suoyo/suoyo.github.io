@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android,ListView," />
+  <meta name="keywords" content="Android," />
 
 
 
@@ -90,16 +90,24 @@
 
 
 
-<meta name="description" content="ScrollView嵌套ListView自定义ListView目前的解决办法，给ListView设置固定高度,自定义InnerListView">
+<meta name="description" content="如果你的应用的目标是 Android 7.1（API级别25）或更高，则可以在应用中定义快捷方式以适应特定操作。这些快捷方式可以显示在支持的启动器中。Shortcuts（快捷方式）可让你的用户在应用内快速启动常用或推荐的任务。
+  你可以一次为你的应用发布最多五个快捷方式（包括静态快捷方式和动态快捷方式）。但是，某些启动器应用程序不会显示你为应用程序创建的每个和动态快捷方式。
+  用户可以创建">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android 开发总结：ListView">
-<meta property="og:url" content="http://suoyo.github.io/2016/10/21/Android-ListView/index.html">
+<meta property="og:title" content="Android App Shortcuts">
+<meta property="og:url" content="http://suoyo.github.io/2018/04/09/android-app-shortcuts/index.html">
 <meta property="og:site_name" content="Suoyo's Notes">
-<meta property="og:description" content="ScrollView嵌套ListView自定义ListView目前的解决办法，给ListView设置固定高度,自定义InnerListView">
-<meta property="og:updated_time" content="2017-02-23T09:13:35.000Z">
+<meta property="og:description" content="如果你的应用的目标是 Android 7.1（API级别25）或更高，则可以在应用中定义快捷方式以适应特定操作。这些快捷方式可以显示在支持的启动器中。Shortcuts（快捷方式）可让你的用户在应用内快速启动常用或推荐的任务。
+  你可以一次为你的应用发布最多五个快捷方式（包括静态快捷方式和动态快捷方式）。但是，某些启动器应用程序不会显示你为应用程序创建的每个和动态快捷方式。
+  用户可以创建">
+<meta property="og:image" content="http://ob9p5reln.bkt.clouddn.com/shortcut_effect.gif">
+<meta property="og:updated_time" content="2018-04-19T12:58:44.610Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android 开发总结：ListView">
-<meta name="twitter:description" content="ScrollView嵌套ListView自定义ListView目前的解决办法，给ListView设置固定高度,自定义InnerListView">
+<meta name="twitter:title" content="Android App Shortcuts">
+<meta name="twitter:description" content="如果你的应用的目标是 Android 7.1（API级别25）或更高，则可以在应用中定义快捷方式以适应特定操作。这些快捷方式可以显示在支持的启动器中。Shortcuts（快捷方式）可让你的用户在应用内快速启动常用或推荐的任务。
+  你可以一次为你的应用发布最多五个快捷方式（包括静态快捷方式和动态快捷方式）。但是，某些启动器应用程序不会显示你为应用程序创建的每个和动态快捷方式。
+  用户可以创建">
+<meta name="twitter:image" content="http://ob9p5reln.bkt.clouddn.com/shortcut_effect.gif">
 
 
 
@@ -127,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://suoyo.github.io/2016/10/21/Android-ListView/"/>
+  <link rel="canonical" href="http://suoyo.github.io/2018/04/09/android-app-shortcuts/"/>
 
 
 
 
 
-  <title>Android 开发总结：ListView | Suoyo's Notes</title>
+  <title>Android App Shortcuts | Suoyo's Notes</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -273,7 +281,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://suoyo.github.io/2016/10/21/Android-ListView/">
+    <link itemprop="mainEntityOfPage" href="http://suoyo.github.io/2018/04/09/android-app-shortcuts/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yongchao Suo">
@@ -290,7 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Android 开发总结：ListView</h1>
+          <h1 class="post-title" itemprop="name headline">Android App Shortcuts</h1>
         
 
         <div class="post-meta">
@@ -302,8 +310,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-21T13:55:31+08:00">
-                2016-10-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-09T20:38:52+08:00">
+                2018-04-09
               </time>
             
 
@@ -315,8 +323,8 @@
 			
 			  <span class="post-updated">
 				&nbsp; | &nbsp; 更新于
-				<time itemprop="dateUpdated" datetime="2017-02-23T17:13:35+08:00" content="2017-02-23">
-				  2017-02-23
+				<time itemprop="dateUpdated" datetime="2018-04-19T20:58:44+08:00" content="2018-04-19">
+				  2018-04-19
 				</time>
 			  </span>
 			
@@ -330,9 +338,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/10/21/Android-ListView/#comments" itemprop="discussionUrl">
+                <a href="/2018/04/09/android-app-shortcuts/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2016/10/21/Android-ListView/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/04/09/android-app-shortcuts/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -340,7 +348,7 @@
 
           
           
-             <span id="/2016/10/21/Android-ListView/" class="leancloud_visitors" data-flag-title="Android 开发总结：ListView">
+             <span id="/2018/04/09/android-app-shortcuts/" class="leancloud_visitors" data-flag-title="Android App Shortcuts">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -368,10 +376,35 @@
       
 
       
-        <h2 id="ScrollView嵌套ListView"><a href="#ScrollView嵌套ListView" class="headerlink" title="ScrollView嵌套ListView"></a>ScrollView嵌套ListView</h2><h3 id="自定义ListView"><a href="#自定义ListView" class="headerlink" title="自定义ListView"></a>自定义ListView</h3><p>目前的解决办法，给ListView设置固定高度,自定义InnerListView<br><a id="more"></a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerListview</span> <span class="keyword">extends</span> <span class="title">ListView</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> ScrollView parentScrollView;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">InnerListview</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> ScrollView <span class="title">getParentScrollView</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> parentScrollView;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setParentScrollView</span><span class="params">(ScrollView parentScrollView)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.parentScrollView = parentScrollView;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onInterceptTouchEvent</span><span class="params">(MotionEvent ev)</span> </span>&#123;</div><div class="line">        <span class="keyword">switch</span> (ev.getAction()) &#123;</div><div class="line">            <span class="keyword">case</span> MotionEvent.ACTION_DOWN:</div><div class="line"></div><div class="line">                setParentScrollAble(<span class="keyword">false</span>);<span class="comment">//当手指触到listview的时候，让父ScrollView交出ontouch权限，也就是让父scrollview停住不能滚动</span></div><div class="line">            <span class="keyword">case</span> MotionEvent.ACTION_MOVE:</div><div class="line"></div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> MotionEvent.ACTION_UP:</div><div class="line"></div><div class="line">            <span class="keyword">case</span> MotionEvent.ACTION_CANCEL:</div><div class="line"></div><div class="line">                setParentScrollAble(<span class="keyword">true</span>);<span class="comment">//当手指松开时，让父ScrollView重新拿到onTouch权限</span></div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                <span class="keyword">break</span>;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onInterceptTouchEvent(ev);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 是否把滚动事件交给父scrollview</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> flag</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setParentScrollAble</span><span class="params">(<span class="keyword">boolean</span> flag)</span> </span>&#123;</div><div class="line">        parentScrollView.requestDisallowInterceptTouchEvent(!flag);<span class="comment">//这里的parentScrollView就是listview外面的那个scrollview</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="长按item"><a href="#长按item" class="headerlink" title="长按item"></a>长按item</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//点击</span></div><div class="line">lv.setOnItemClickListener(<span class="keyword">new</span> AdapterView.OnItemClickListener()</div><div class="line">&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onItemClick</span><span class="params">(AdapterView&lt;?&gt; parent, View view,</span></span></div><div class="line">            <span class="keyword">int</span> position, <span class="keyword">long</span> id)</div><div class="line">    &#123;</div><div class="line">      <span class="comment">//do something</span></div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">///长按</span></div><div class="line">lv.setOnItemLongClickListener(<span class="keyword">new</span> AdapterView.OnItemLongClickListener()</div><div class="line">&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onItemLongClick</span><span class="params">(AdapterView&lt;?&gt; arg0, View arg1,</span></span></div><div class="line">            <span class="keyword">int</span> position, <span class="keyword">long</span> arg3)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">// do something</span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>; <span class="comment">//这里应设为true，否则会触发点击事件</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>参考：<a href="http://www.eoeandroid.com/thread-246995-1-1.html" target="_blank" rel="external">android之ScrollView里嵌套ListView</a></p>
+        <p>  如果你的应用的目标是 Android 7.1（API级别25）或更高，则可以在应用中定义快捷方式以适应特定操作。这些快捷方式可以显示在支持的启动器中。Shortcuts（快捷方式）可让你的用户在应用内快速启动常用或推荐的任务。</p>
+<p>  你可以一次为你的应用发布最多五个快捷方式（包括静态快捷方式和动态快捷方式）。但是，某些启动器应用程序不会显示你为应用程序创建的每个和动态快捷方式。</p>
+<p>  用户可以创建的应用固定快捷方式的数量没有限制。即使你的应用无法删除已固定的快捷方式，但仍可以禁用它们。</p>
+  <a id="more"></a>
+<p>  效果图：</p>
+<p><img src="http://ob9p5reln.bkt.clouddn.com/shortcut_effect.gif" alt="shortcut效果图"></p>
+<h1 id="使用静态快捷方式"><a href="#使用静态快捷方式" class="headerlink" title="使用静态快捷方式"></a>使用静态快捷方式</h1><p> 静态快捷方式应提供应用程序中通用操作的链接，这些操作应在应用程序当前版本的整个生命周期内保持一致。</p>
+<p> 要创建静态快捷方式，需要以下几个步骤：</p>
+<ol>
+<li><p>在应用的清单文件（<code>AndroidManifest.xml</code>）中，找到 <code>intent-filter</code> 的 <code>action</code> 设置为 <code>android.intent.action.MAIN</code> , <code>category</code> 设置为 <code>android.intent.category.LAUNCHER</code>的 Activity 。</p>
+</li>
+<li><p>为这个 Activity 添加一引用了定义快_捷方式资源文件的 <code>&lt;meta-data&gt;</code> 元素：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">          <span class="attr">package</span>=<span class="string">"com.example.myapplication"</span>&gt;</div><div class="line">  <span class="tag">&lt;<span class="name">application</span> <span class="attr">...</span> &gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">"Main"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">meta-data</span> <span class="attr">android:name</span>=<span class="string">"android.app.shortcuts"</span></span></div><div class="line">                 <span class="attr">android:resource</span>=<span class="string">"@xml/shortcuts"</span> /&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">application</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>创建一个新的资源文件： <code>res/xml/shortcuts.xml</code> 。</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">shortcuts</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">shortcut</span></span></div><div class="line">    <span class="attr">android:shortcutId</span>=<span class="string">"compose"</span></div><div class="line">    <span class="attr">android:enabled</span>=<span class="string">"true"</span></div><div class="line">    <span class="attr">android:icon</span>=<span class="string">"@drawable/compose_icon"</span></div><div class="line">    <span class="attr">android:shortcutShortLabel</span>=<span class="string">"@string/compose_shortcut_short_label1"</span></div><div class="line">    <span class="attr">android:shortcutLongLabel</span>=<span class="string">"@string/compose_shortcut_long_label1"</span></div><div class="line">    <span class="attr">android:shortcutDisabledMessage</span>=<span class="string">"@string/compose_disabled_message1"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">intent</span></span></div><div class="line">      <span class="attr">android:action</span>=<span class="string">"android.intent.action.VIEW"</span></div><div class="line">      <span class="attr">android:targetPackage</span>=<span class="string">"com.example.myapplication"</span></div><div class="line">      <span class="attr">android:targetClass</span>=<span class="string">"com.example.myapplication.ComposeActivity"</span> /&gt;</div><div class="line">    <span class="comment">&lt;!-- If your shortcut is associated with multiple intents, include them</span></div><div class="line">         here. The last intent in the list determines what the user sees when</div><div class="line">         they launch this shortcut. --&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">categories</span> <span class="attr">android:name</span>=<span class="string">"android.shortcut.conversation"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">shortcut</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- Specify more shortcuts here. --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">shortcuts</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><code>shortcut</code> 为根元素，其中包含一个 <code>&lt;shortcut&gt;</code> 元素列表。每一个 <code>&lt;shortcut&gt;</code> 元素又包含图标、说明标签和要启动的 Intent 等信息：</p>
+<ul>
+<li><code>shortcutId</code> 唯一标识。</li>
+<li><code>enabled</code> 是否可用，默认值为 true 。</li>
+<li><code>icon</code> shortcut 的图标。</li>
+<li><code>shortcutShortLabel</code> 简短标题，建议不超过10个字符。</li>
+<li><code>shortcutLongLabel</code> 标题，如果启动器有足够的空间将会显示这个标题，否则会显示短标题 ，建议不超过25个字符。</li>
+<li><code>shortcutDisabledMessage</code> 用户点击已固定在桌面的被禁用的快捷方式时显示的提示内容，如果 <code>android:enabled</code> 设置为 true ，此属性无效。</li>
+<li><code>intent</code> 点击快捷方式时相应的 Intent ，如果将多个意图与快捷方式相关联，则系统将在资源文件中启动与该快捷方式的最后一个意图相对应的活动，并在后方堆栈中启动其他活动。 在这种情况下，当用户选择快捷方式然后按后退键时，您的应用程序将启动与资源文件中列出的快捷方式倒数第二个意向对应的活动。 这种行为模式会一直重复按下后退按钮，直到用户清除快捷方式创建的后台堆栈。 当用户下一次按下后退按钮时，系统将其导航回启动器。</li>
+</ul>
+</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://developer.android.com/guide/topics/ui/shortcuts.html#static" target="_blank" rel="external">官方文档</a></p>
 
       
     </div>
@@ -403,8 +436,6 @@
           
             <a href="/tags/Android/" rel="tag"># Android</a>
           
-            <a href="/tags/ListView/" rel="tag"># ListView</a>
-          
         </div>
       
 
@@ -416,8 +447,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/13/Android-Search/" rel="next" title="在Android中添加搜索框">
-                <i class="fa fa-chevron-left"></i> 在Android中添加搜索框
+              <a href="/2017/07/16/atom-install-packages-error/" rel="next" title="Atom安装插件报错">
+                <i class="fa fa-chevron-left"></i> Atom安装插件报错
               </a>
             
           </div>
@@ -425,10 +456,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/29/git-notes/" rel="prev" title="Git Notes">
-                Git Notes <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -579,7 +606,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ScrollView嵌套ListView"><span class="nav-number">1.</span> <span class="nav-text">ScrollView嵌套ListView</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义ListView"><span class="nav-number">1.1.</span> <span class="nav-text">自定义ListView</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#长按item"><span class="nav-number">2.</span> <span class="nav-text">长按item</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用静态快捷方式"><span class="nav-number">1.</span> <span class="nav-text">使用静态快捷方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
@@ -728,9 +755,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://suoyo.github.io/2016/10/21/Android-ListView/';
-          this.page.identifier = '2016/10/21/Android-ListView/';
-          this.page.title = 'Android 开发总结：ListView';
+          this.page.url = 'http://suoyo.github.io/2018/04/09/android-app-shortcuts/';
+          this.page.identifier = '2018/04/09/android-app-shortcuts/';
+          this.page.title = 'Android App Shortcuts';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://suoyo.disqus.com/embed.js';
